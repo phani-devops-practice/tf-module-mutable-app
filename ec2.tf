@@ -1,5 +1,5 @@
 resource "aws_spot_instance_request" "instance" {
-  count                  = var.INSTANCE_TYPE
+  count                  = var.INSTANCE_COUNT
   ami                    = data.aws_ami.ami.image_id
   spot_price             = data.aws_ec2_spot_price.spot_price.spot_price
   instance_type          = var.INSTANCE_TYPE
