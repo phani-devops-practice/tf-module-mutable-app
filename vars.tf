@@ -8,6 +8,7 @@ variable "PORT" {}
 variable "WORKSTATION_IP" {}
 variable "COMPONENT" {}
 variable "INSTANCE_COUNT" {}
+variable "LB_ARN" {}
 
 
 
