@@ -7,6 +7,7 @@ variable "VPC_ID" {}
 variable "PORT" {}
 variable "WORKSTATION_IP" {}
 variable "COMPONENT" {}
+variable "INSTANCE_COUNT" {}
 
 
 
