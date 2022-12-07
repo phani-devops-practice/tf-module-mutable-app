@@ -1,5 +1,5 @@
 resource "aws_lb_target_group" "target-group" {
-  name     = "${local.TAG_PREFIX}"
+  name     = "${var.COMPONENT}-${var.ENV}"
   port     = var.PORT
   protocol = "HTTP"
   vpc_id   = var.VPC_ID

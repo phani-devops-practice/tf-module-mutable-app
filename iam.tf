@@ -4,27 +4,27 @@ resource "aws_iam_policy" "allow-secret-manager-read-access" {
   description = "RoboShop-${var.COMPONENT}-SecretManager-ReadAccess-${var.ENV}"
 
   policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        "Sid": "VisualEditor0",
-        "Effect": "Allow",
-        "Action": [
+        "Sid" : "VisualEditor0",
+        "Effect" : "Allow",
+        "Action" : [
           "secretsmanager:GetResourcePolicy",
           "secretsmanager:GetSecretValue",
           "secretsmanager:DescribeSecret",
           "secretsmanager:ListSecretVersionIds"
         ],
-        "Resource": "arn:aws:secretsmanager:us-east-1:645019601948:secret:roboshop/all-1Te0ZL"
+        "Resource" : "arn:aws:secretsmanager:us-east-1:645019601948:secret:roboshop/all-1Te0ZL"
       },
       {
-        "Sid": "VisualEditor1",
-        "Effect": "Allow",
-        "Action": [
+        "Sid" : "VisualEditor1",
+        "Effect" : "Allow",
+        "Action" : [
           "secretsmanager:GetRandomPassword",
           "secretsmanager:ListSecrets"
         ],
-        "Resource": "*"
+        "Resource" : "*"
       }
     ]
   })
