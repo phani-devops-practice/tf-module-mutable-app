@@ -35,3 +35,25 @@ resource "aws_lb_listener" "frontend" {
   }
 }
 
+resource "random_integer" "priority" {
+  min = 1
+  max = 50000
+}
+
+resource "aws_lb_listener_rule" "backend" {
+  count        = var.LB_TYPE == "private" ? 1 : 0
+  listener_arn = var.PRIVATE_LISTENER_ARN
+  priority     = random_integer.priority.result
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.target-group.arn
+  }
+
+  condition {
+    host_header {
+      values = ["${var.COMPONENT}-${var.ENV}.roboshop.internal"]
+    }
+  }
+}
+
