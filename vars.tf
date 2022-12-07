@@ -12,6 +12,7 @@ variable "LB_ARN" {}
 variable "LB_TYPE" {}
 variable "PRIVATE_LB_DNS" {}
 variable "PRIVATE_ZONE_ID" {}
+variable "PRIVATE_LISTENER_ARN" {}
 
 
 
