@@ -20,6 +20,9 @@ resource "aws_ec2_tag" "main" {
 }
 
 resource "null_resource" "cluster" {
+  triggers = {
+    abc = timestamp()
+  }
   count       = var.INSTANCE_COUNT
   provisioner "remote-exec" {
     connection {
