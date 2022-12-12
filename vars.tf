@@ -23,6 +23,8 @@ variable "MYSQL_ENDPOINT" {
   default = "null"
 }
 
+variable "PROMETHEUS_IP" {}
+
 
 
 

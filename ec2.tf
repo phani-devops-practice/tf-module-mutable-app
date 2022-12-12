@@ -12,11 +12,18 @@ resource "aws_spot_instance_request" "instance" {
   }
 }
 
-resource "aws_ec2_tag" "main" {
+resource "aws_ec2_tag" "name-tag" {
   count       = var.INSTANCE_COUNT
   resource_id = aws_spot_instance_request.instance.*.spot_instance_id[count.index]
   key         = "Name"
   value       = local.TAG_PREFIX
+}
+
+resource "aws_ec2_tag" "monitor-tag" {
+  count       = var.INSTANCE_COUNT
+  resource_id = aws_spot_instance_request.instance.*.spot_instance_id[count.index]
+  key         = "Monitor"
+  value       = "yes"
 }
 
 resource "null_resource" "cluster" {
